@@ -39,7 +39,7 @@ res.status(500).json({message:error.message})
 
 export const login=async(req,res)=>{
     const {email,password,}= req.body
-   // console.log(email,password,username)
+   console.log(email,password)
     
     
      try{

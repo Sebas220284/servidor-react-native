@@ -9,7 +9,7 @@ async function main() {
     console.log(`Listening on port http://localhost:${PORT}`);
     console.log(`Environment: ${process.env.NODE_ENV}`)
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
 

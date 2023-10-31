@@ -1,30 +1,19 @@
-
 import mongoose from "mongoose";
 
-const MONGODB_URI=process.env.MONGODB_URI ||  "mongodb://localhost:27017/app-native";
+const uri = "mongodb+srv://sebastianvazquez:milanesa220284@cluster0.k5mx9um.mongodb.net/?retryWrites=true&w=majority";
 
-
-export const connectDB= async ()=>{
-    try{
-        await mongoose.connect(MONGODB_URI)
-        console.log('BASE DE DATOS CONECTADA:)')
-    }catch(error){
-console.log(error)
-    }
+export const connectDB =  () => {
+  try {
   
-}
+    const writeConcern = { w: "majority", wtimeout: 1000, j: true };
 
-/*import mongoose from "mongoose";
-
-//require('dotenv').config()
-const mongoURI=process.env.MONGODB_URL
-export const connectDB=  ()=>{
-    try{
-       mongoose.connect(process.env.MONGODB_URI)
-        console.log('BASE DE DATOS CONECTADA:)')
-    }catch(error){
-console.log(error)
-    }
+    const client = new mongoose.Mongoose();
+    
   
+    client.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, writeConcern });
+
+    console.log('BASE DE DATOS CONECTADA:)');
+  } catch (error) {
+    console.error(error);
+  }
 }
-*/
